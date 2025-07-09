@@ -7,7 +7,7 @@ app = Flask(__name__)
 HF_TOKEN = os.getenv("HF_TOKEN") 
 print(HF_TOKEN) # fix your env var name spelling if needed
 
-client = InferenceClient( provider="fireworks-ai",token=HF_TOKEN)
+client = InferenceClient( provider="novita",token=HF_TOKEN)
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -19,10 +19,10 @@ def chat():
     messages = [{"role": "user", "content": user_text}]
     
     completion = client.chat.completions.create(
-        model="meta-llama/Llama-3.1-8B-Instruct",
-        messages=messages
-    )
-    
+  model="mistralai/Mistral-7B-Instruct-v0.3",
+  messages=messages
+)
+
     response_text = completion.choices[0].message["content"]
     return jsonify({"response": response_text})
 
