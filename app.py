@@ -7,7 +7,7 @@ app = Flask(__name__)
 HF_TOKEN = os.getenv("HF_TOKEN") 
 print(HF_TOKEN) # fix your env var name spelling if needed
 
-client = InferenceClient(token=HF_TOKEN)
+client = InferenceClient( provider="fireworks-ai",token=HF_TOKEN)
 
 @app.route("/chat", methods=["POST"])
 def chat():
