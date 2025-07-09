@@ -4,7 +4,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-HF_TOKEN = os.getenv("HF_TOKEN")  # fix your env var name spelling if needed
+HF_TOKEN = os.getenv("HF_TOKEN") 
+print(HF_TOKEN) # fix your env var name spelling if needed
 
 client = InferenceClient(token=HF_TOKEN)
 
